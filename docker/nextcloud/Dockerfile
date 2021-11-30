@@ -1,6 +1,6 @@
 FROM nextcloud:fpm
 
-RUN apt update && apt install -y aria2 libmagickcore-6.q16-6-extra cron vim && apt clean
+RUN apt update && apt install -y aria2 libmagickcore-6.q16-6-extra cron vim smbclient libsmbclient-dev && apt clean
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /var/www/aria2
