@@ -1,7 +1,11 @@
 name: Publish Nextcloud to DockerHub
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Software version(最后面的版本号对应于官方版本)"
+        required: true
+        default: 1.2.2223
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -9,9 +13,10 @@ jobs:
       - uses: actions/checkout@master
       - name: Set ENV
         run: |
-          echo "RELEASE_VERSION_ALL=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
-          echo "RELEASE_VERSION_SUB=$(echo ${GITHUB_REF:10:1})" >> $GITHUB_ENV
-          echo "RELEASE_VERSION_MAIN=$(echo ${GITHUB_REF:10:3})" >> $GITHUB_ENV
+          VERSION="${{ github.event.inputs.version }}"
+          echo "RELEASE_VERSION_ALL=${VERSION}" >> $GITHUB_ENV
+          echo "RELEASE_VERSION_MAIN=${VERSION:0:1}" >> $GITHUB_ENV
+          echo "RELEASE_VERSION_SUB=${VERSION:0:3}" >> $GITHUB_ENV
           echo "${{ env.RELEASE_VERSION_ALL }}"
           echo "${{ env.RELEASE_VERSION_SUB }}"
           echo "${{ env.RELEASE_VERSION_MAIN }}"
