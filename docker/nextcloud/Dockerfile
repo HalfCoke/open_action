@@ -1,4 +1,4 @@
-FROM nextcloud:fpm-alpine
+FROM nextcloud:fpm
 
 RUN apt update && apt install -y libmagickcore-6.q16-6-extra cron vim smbclient libsmbclient-dev && apt clean
 RUN rm -rf /var/lib/apt/lists/*
