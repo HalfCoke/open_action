@@ -12,4 +12,4 @@ RUN { \
     }
 WORKDIR /var/www/html
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["php-fpm"]
+CMD ["apache2-foreground"]

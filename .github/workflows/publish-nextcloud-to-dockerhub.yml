@@ -26,5 +26,5 @@ jobs:
           name: halfcoke/nextcloud
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          tags: "latest,${{ env.RELEASE_VERSION_ALL }},${{ env.RELEASE_VERSION_SUB }},${{ env.RELEASE_VERSION_MAIN }}"
+          tags: "${{ env.RELEASE_VERSION_ALL }},${{ env.RELEASE_VERSION_SUB }},${{ env.RELEASE_VERSION_MAIN }}"
           dockerfile: docker/nextcloud/Dockerfile
