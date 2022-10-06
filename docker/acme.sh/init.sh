@@ -51,7 +51,7 @@ cd /acme.sh-master/
 --accountemail "$EMAIL"
 
 echo "3: enable auto upgrade"
-acme.sh --upgrade --auto-upgrade
+"$HOME"/.acme.sh/acme.sh --upgrade --auto-upgrade
 
 CMD="$HOME/.acme.sh/acme.sh --issue --dns"
 
