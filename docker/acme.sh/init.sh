@@ -50,6 +50,9 @@ cd /acme.sh-master/
 --cert-home  /ssl \
 --accountemail "$EMAIL"
 
+echo "3: enable auto upgrade"
+acme.sh --upgrade --auto-upgrade
+
 CMD="$HOME/.acme.sh/acme.sh --issue --dns"
 
 # select api
@@ -64,10 +67,12 @@ do
   CMD=$CMD" -d ${domain}"
 done
 
-echo "3: CMD: $CMD"
-echo "3: Get certificate"
+echo "4: Get certificate"
+echo "4: CMD: $CMD"
+
 eval "$CMD"
 
+echo "4: Get certificate success"
 # daemon
 trap "echo stop && killall crond && exit 0" SIGTERM SIGINT
 crond && sleep infinity &
