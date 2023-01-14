@@ -42,7 +42,7 @@ fi
 
 echo "2: install acme.sh"
 cd /
-unzip /acme.zip
+unzip -o /acme.zip
 
 cd /acme.sh-master/
 
