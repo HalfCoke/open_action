@@ -21,7 +21,7 @@ jobs:
           echo "${{ env.RELEASE_VERSION_SUB }}"
           echo "${{ env.RELEASE_VERSION_MAIN }}"
       - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: halfcoke/acme.sh
           username: ${{ secrets.DOCKER_USERNAME }}
